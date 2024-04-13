@@ -1,1 +1,1 @@
-# PlayGround.ChatService
+# ChatService
