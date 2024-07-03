@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using PlayGround.ChatService.DataService;
 using PlayGround.ChatService.Models;
 
@@ -10,11 +11,14 @@ namespace PlayGround.ChatService.Hubs
         
         public ChatHub(SharedDb sharedDb) => _sharedDb = sharedDb;
 
+
+        [Authorize]
         public async Task JoinChat(UserConnection userConnection)
         {
             await Clients.All.SendAsync("RecieveMessage", "admin", $"{userConnection.UserName} has joined");
         }
 
+        [Authorize]
         public async Task JoinSpecificChatRoom(UserConnection userConnection)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.ChatRoom);
@@ -25,6 +29,7 @@ namespace PlayGround.ChatService.Hubs
                 .SendAsync("RecieveSpecificMessage", "admin", $"{userConnection.UserName} has joined {userConnection.ChatRoom}");
         }
 
+        [Authorize]
         public async Task SendMessage(string message)
         {
             if(_sharedDb.connections.TryGetValue(Context.ConnectionId,out UserConnection userConnection))
