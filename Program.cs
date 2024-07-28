@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using PlayGround.ChatService.Services;
+using Microsoft.EntityFrameworkCore;
+using PlayGround.ChatService.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var Configuration = builder.Configuration;
+
+builder.Services.AddDbContextFactory<DataContext>(options => options.UseSqlServer(Configuration["Authentication:JwtSecret"]),ServiceLifetime.Transient);
 
 
 builder.Services.AddCors(options =>
