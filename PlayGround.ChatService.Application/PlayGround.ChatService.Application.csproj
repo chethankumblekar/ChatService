@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChatService.Model\PlayGround.ChatService.Model.csproj" />
+    <ProjectReference Include="..\Playground.Core\Playground.ChatService.Core.csproj" />
+  </ItemGroup>
+
+</Project>
