@@ -1,11 +1,6 @@
 ﻿using Playground.ChatService.Core.Services;
 using PlayGround.ChatService.Core;
 using PlayGround.ChatService.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlayGround.ChatService.Application.Services
 {
