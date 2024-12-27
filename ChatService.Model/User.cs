@@ -4,7 +4,7 @@ namespace PlayGround.ChatService.Model
 {
     public class User
     {
-        public Guid Id { get; set; }
+        public required string Id { get; set; }
         public List<Message> Messages { get; set; } = new();
         public List<Group> Groups { get; set; } = new();
         public required string FirstName { get; set; }

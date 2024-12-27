@@ -4,7 +4,7 @@ using PlayGround.ChatService.Model;
 
 namespace PlayGround.ChatService.Infrastructure.Repository
 {
-    internal class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DataContext _context;
 
@@ -33,7 +33,7 @@ namespace PlayGround.ChatService.Infrastructure.Repository
             return await _context.Users.ToListAsync();
         }
 
-        public async Task<User?> GetUserByIdAsync(Guid id)
+        public async Task<User?> GetUserByIdAsync(string id)
         {
             return await _context.Users.FindAsync(id);
         }

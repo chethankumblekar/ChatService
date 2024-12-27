@@ -10,7 +10,7 @@ namespace PlayGround.ChatService.Hubs
     {
         private readonly SharedDb _sharedDb;
         
-        public ChatHub(SharedDb sharedDb) => _sharedDb = sharedDb;
+        //public ChatHub(SharedDb sharedDb) => _sharedDb = sharedDb;
 
         private readonly IChatService _chatService;
 
@@ -20,41 +20,41 @@ namespace PlayGround.ChatService.Hubs
         }
 
         [Authorize]
-        public async Task SendMessageToUser(Guid recipientId, string message)
+        public async Task SendMessageToUser(string recipientId, string message)
         {
-            var senderId = Guid.Parse(Context.UserIdentifier!);
+            var senderId = Context.UserIdentifier!;
             await _chatService.SendMessageAync(senderId, recipientId, message);
 
             // notifying recipient
             await Clients.User(recipientId.ToString()).SendAsync("ReceiveMessage",senderId,message);
         }
 
-        [Authorize]
-        public async Task JoinChat(UserConnection userConnection)
-        {
-            await Clients.All.SendAsync("RecieveMessage", "admin", $"{userConnection.UserName} has joined");
-        }
+        //[Authorize]
+        //public async Task JoinChat(UserConnection userConnection)
+        //{
+        //    await Clients.All.SendAsync("RecievedMessage", "admin", $"{userConnection.UserName} has joined");
+        //}
 
-        [Authorize]
-        public async Task JoinSpecificChatRoom(UserConnection userConnection)
-        {
-            await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.ChatRoom);
-            
-            _sharedDb.connections[Context.ConnectionId] = userConnection;
+        //[Authorize]
+        //public async Task JoinSpecificChatRoom(UserConnection userConnection)
+        //{
+        //    await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.ChatRoom);
 
-            await Clients.Group(userConnection.ChatRoom)
-                .SendAsync("RecieveSpecificMessage", "admin", $"{userConnection.UserName} has joined {userConnection.ChatRoom}");
-        }
+        //    _sharedDb.connections[Context.ConnectionId] = userConnection;
 
-        [Authorize]
-        public async Task SendMessage(string message)
-        {
-            if(_sharedDb.connections.TryGetValue(Context.ConnectionId,out UserConnection userConnection))
-            {
-                await Clients.Group(userConnection.ChatRoom)
-                    .SendAsync("RecieveSpecificMessage", userConnection.UserName, $"{message}");
-            }
-        }
+        //    await Clients.Group(userConnection.ChatRoom)
+        //        .SendAsync("RecieveSpecificMessage", "admin", $"{userConnection.UserName} has joined {userConnection.ChatRoom}");
+        //}
+
+        //[Authorize]
+        //public async Task SendMessage(string message)
+        //{
+        //    if(_sharedDb.connections.TryGetValue(Context.ConnectionId,out UserConnection userConnection))
+        //    {
+        //        await Clients.Group(userConnection.ChatRoom)
+        //            .SendAsync("RecieveSpecificMessage", userConnection.UserName, $"{message}");
+        //    }
+        //}
 
     }
 }

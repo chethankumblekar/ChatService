@@ -1,4 +1,5 @@
-﻿using PlayGround.ChatService.Models;
+﻿using PlayGround.ChatService.Model;
+using PlayGround.ChatService.Models;
 using static Google.Apis.Auth.GoogleJsonWebSignature;
 
 namespace PlayGround.ChatService.Services

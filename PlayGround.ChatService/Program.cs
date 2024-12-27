@@ -6,6 +6,10 @@ using System.Text;
 using PlayGround.ChatService.Services;
 using Microsoft.EntityFrameworkCore;
 using PlayGround.ChatService.Infrastructure;
+using Playground.ChatService.Core.Services;
+using PlayGround.ChatService.Application.Services;
+using PlayGround.ChatService.Core;
+using PlayGround.ChatService.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +23,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var Configuration = builder.Configuration;
 
-builder.Services.AddDbContextFactory<DataContext>(options => options.UseSqlServer(Configuration["Authentication:JwtSecret"]),ServiceLifetime.Transient);
+builder.Services.AddDbContextFactory<DataContext>(options => options.UseSqlServer(Configuration["DbConnection:ConnectionString"]),ServiceLifetime.Transient);
 
 
 builder.Services.AddCors(options =>
@@ -34,6 +38,11 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddSingleton<IChatService, ChatService>();
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IMessageRepository, MessageRepository>();
+builder.Services.AddSingleton<IGroupRepository, GroupRepository>();
+
 builder.Services.AddSingleton<SharedDb>();
 
 
@@ -65,10 +74,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.UseCors("reactApp");
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.MapControllers();
-app.MapHub<ChatHub>("/chat");
+app.MapHub<ChatHub>("/chat").RequireAuthorization();
 
 app.Run();

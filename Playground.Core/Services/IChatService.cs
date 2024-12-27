@@ -9,6 +9,6 @@ namespace Playground.ChatService.Core.Services
 {
     public interface IChatService
     {
-        Task SendMessageAync(Guid senderId,Guid recipientId, string message);
+        Task SendMessageAync(string senderId,string recipientId, string message);
     }
 }

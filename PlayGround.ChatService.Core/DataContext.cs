@@ -15,7 +15,7 @@ namespace PlayGround.ChatService.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=VT10042,1433;Initial Catalog=ChatService;Persist Security Info=False;User ID=admin;Password=admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer("Server=VT10042,1433;Initial Catalog=ChatService;Persist Security Info=False;User ID=proadmin;Password=admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,7 +38,9 @@ namespace PlayGround.ChatService.Infrastructure
                 entity.HasMany(u => u.Messages)
                     .WithOne(m => m.Sender)
                     .HasForeignKey(m => m.SenderId)
-                    .OnDelete(DeleteBehavior.Restrict); 
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.ToTable("users");
             });
 
             modelBuilder.Entity<Group>(entity =>
@@ -51,7 +53,7 @@ namespace PlayGround.ChatService.Infrastructure
 
                 entity.HasMany(g => g.Members)
                     .WithMany(u => u.Groups) 
-                    .UsingEntity(join => join.ToTable("UserGroups")); 
+                    .UsingEntity(join => join.ToTable("user_groups")); 
 
                 entity.HasMany(g => g.Messages)
                     .WithOne(m => m.Group)
@@ -75,6 +77,8 @@ namespace PlayGround.ChatService.Infrastructure
                     .WithMany(g => g.Messages)
                     .HasForeignKey(m => m.GroupId)
                     .IsRequired(false);
+
+                entity.ToTable("messages");
             });
         }
     }

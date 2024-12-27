@@ -19,7 +19,7 @@ namespace PlayGround.ChatService.Application.Services
             _groupRepository = groupRepository;
         }
 
-        public async Task SendMessageAync(Guid senderId,Guid recipientId, string message)    {
+        public async Task SendMessageAync(string senderId,string recipientId, string message)    {
             var sender = await _userRepository.GetUserByIdAsync(senderId);
             var recipient = await _userRepository.GetUserByIdAsync(recipientId);
             

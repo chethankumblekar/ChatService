@@ -14,11 +14,11 @@ namespace PlayGround.ChatService.Model
     {
         public Guid Id { get; set; }
 
-        public Guid SenderId { get; set; }
+        public required string SenderId { get; set; }
 
         public virtual User Sender { get; set; } // Navigation property
 
-        public Guid? RecipientId { get; set; }
+        public string? RecipientId { get; set; }
 
         public virtual User? Recipient { get; set; } // Nullable for group messages
 
