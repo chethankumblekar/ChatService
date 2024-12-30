@@ -13,10 +13,10 @@ namespace PlayGround.ChatService.Infrastructure
 
         public DbSet<Group> Groups { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=VT10042,1433;Initial Catalog=ChatService;Persist Security Info=False;User ID=proadmin;Password=admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=VT10042,1433;Initial Catalog=ChatService;Persist Security Info=False;User ID=proadmin;Password=admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
