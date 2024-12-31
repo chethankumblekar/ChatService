@@ -24,5 +24,12 @@ jobs:
       run: dotnet restore PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj
     - name: Build
       run: dotnet build PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj --no-restore
+    - name: Publish
+      run: dotnet publish PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj --configuration Release --output ./publish
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: published-app
+        path: ./publish
 #    - name: Test
 #      run: dotnet test --no-build --verbosity normal
