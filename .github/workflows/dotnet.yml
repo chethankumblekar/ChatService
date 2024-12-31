@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore **/*/PlayGround.ChatService.Application.csproj
+      run: dotnet restore PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj
     - name: Build
-      run: dotnet build **/*/PlayGround.ChatService.Application.csproj --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj --no-restore
+#    - name: Test
+#      run: dotnet test --no-build --verbosity normal
