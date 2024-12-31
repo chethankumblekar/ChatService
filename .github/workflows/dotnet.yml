@@ -21,11 +21,11 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Restore dependencies
-      run: dotnet restore PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj
+      run: dotnet restore PlayGround.ChatService/PlayGround.ChatService.Api.csproj
     - name: Build
-      run: dotnet build PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj --no-restore
+      run: dotnet build PlayGround.ChatService/PlayGround.ChatService.Api.csproj --no-restore
     - name: Publish
-      run: dotnet publish PlayGround.ChatService.Application/PlayGround.ChatService.Application.csproj --configuration Release --output ./publish
+      run: dotnet publish PlayGround.ChatService/PlayGround.ChatService.Api.csproj --configuration Release --output ./publish
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
