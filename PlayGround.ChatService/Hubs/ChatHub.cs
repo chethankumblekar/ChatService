@@ -11,7 +11,7 @@ namespace PlayGround.ChatService.Hubs
     {
         private readonly IChatService _chatService;
 
-        private static readonly ConcurrentDictionary<string, string> _onlineUsers = new ConcurrentDictionary<string, string>();
+        private static readonly ConcurrentDictionary<string, (string UserId, DateTime LastActive)> _onlineUsers = new();
 
         public ChatHub(IChatService chatService)
         {
@@ -21,15 +21,15 @@ namespace PlayGround.ChatService.Hubs
         public override async Task OnConnectedAsync()
         {
             var userId = Context.UserIdentifier!;
-            _onlineUsers.TryAdd(Context.ConnectionId, userId);
+            _onlineUsers[Context.ConnectionId] =  (userId,DateTime.UtcNow);
             await Clients.All.SendAsync("UserConnected", userId);
             await base.OnConnectedAsync();
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            _onlineUsers.TryRemove(Context.ConnectionId, out var userId);
-            await Clients.All.SendAsync("UserDisconnected", userId);
+            _onlineUsers.TryRemove(Context.ConnectionId, out var userinfo);
+            await Clients.All.SendAsync("UserDisconnected", userinfo.UserId);
             await base.OnDisconnectedAsync(exception);
         }
 
@@ -37,6 +37,11 @@ namespace PlayGround.ChatService.Hubs
         public async Task SendMessageToUser(string recipientId, string message)
         {
             var senderId = Context.UserIdentifier!;
+            if (_onlineUsers.ContainsKey(Context.ConnectionId))
+            {
+                _onlineUsers[Context.ConnectionId] = (senderId, DateTime.UtcNow);
+            }
+
             await _chatService.SendMessageAync(senderId, recipientId, message);
 
             // notifying recipient
