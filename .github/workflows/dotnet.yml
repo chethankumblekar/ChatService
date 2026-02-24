@@ -1,6 +1,3 @@
- # This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: .NET
 
 on:
@@ -11,25 +8,30 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+
     - name: Restore dependencies
-      run: dotnet restore PlayGround.ChatService/PlayGround.ChatService.Api.csproj
+      run: dotnet restore ChatService/src/ChatService.Api/ChatService.Api.csproj
+
     - name: Build
-      run: dotnet build PlayGround.ChatService/PlayGround.ChatService.Api.csproj --no-restore
+      run: dotnet build ChatService/src/ChatService.Api/ChatService.Api.csproj --no-restore
+
     - name: Publish
-      run: dotnet publish PlayGround.ChatService/PlayGround.ChatService.Api.csproj --configuration Release --output ./publish
+      run: dotnet publish ChatService/src/ChatService.Api/ChatService.Api.csproj --configuration Release --output ./publish
+
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: published-app
         path: ./publish
-#    - name: Test
-#      run: dotnet test --no-build --verbosity normal
+
+    - name: Test
+      run: dotnet test ChatService/tests/ChatService.Tests/ChatService.Tests.csproj --no-build --verbosity normal
