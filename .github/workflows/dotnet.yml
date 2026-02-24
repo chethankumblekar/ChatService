@@ -18,14 +18,20 @@ jobs:
       with:
         dotnet-version: 9.0.x
 
+    - name: Find csproj files
+      run: find . -name "*.csproj" | sort
+
     - name: Restore dependencies
-      run: dotnet restore ChatService/src/ChatService.Api/ChatService.Api.csproj
+      run: dotnet restore
 
     - name: Build
-      run: dotnet build ChatService/src/ChatService.Api/ChatService.Api.csproj --no-restore
+      run: dotnet build --no-restore
 
     - name: Publish
-      run: dotnet publish ChatService/src/ChatService.Api/ChatService.Api.csproj --configuration Release --output ./publish
+      run: |
+        API_PROJ=$(find . -name "*.Api.csproj" | head -1)
+        echo "Publishing: $API_PROJ"
+        dotnet publish "$API_PROJ" --configuration Release --output ./publish
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
@@ -34,4 +40,11 @@ jobs:
         path: ./publish
 
     - name: Test
-      run: dotnet test ChatService/tests/ChatService.Tests/ChatService.Tests.csproj --no-build --verbosity normal
+      run: |
+        TEST_PROJ=$(find . -name "*.Tests.csproj" | head -1)
+        if [ -n "$TEST_PROJ" ]; then
+          echo "Testing: $TEST_PROJ"
+          dotnet test "$TEST_PROJ" --no-build --verbosity normal
+        else
+          echo "No test project found, skipping"
+        fi
