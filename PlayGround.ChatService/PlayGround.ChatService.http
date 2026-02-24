@@ -1,6 +1,0 @@
-@PlayGround.ChatService_HostAddress = http://localhost:5095
-
-GET {{PlayGround.ChatService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

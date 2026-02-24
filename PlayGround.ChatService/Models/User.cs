@@ -1,4 +1,0 @@
-﻿namespace PlayGround.ChatService.Models
-{
-    
-}
