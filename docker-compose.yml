@@ -1,12 +1,29 @@
-# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
-
-version: '3.4'
-
+version: "3.9"
 services:
-  playgroundchatserviceapi:
-    image: playgroundchatserviceapi
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrong!Passw0rd
+    ports: ["1433:1433"]
+    volumes: [sqldata:/var/opt/mssql]
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "YourStrong!Passw0rd" -Q "SELECT 1" || exit 1
+      interval: 10s
+      retries: 10
+
+  api:
     build:
       context: .
-      dockerfile: PlayGround.ChatService/Dockerfile
-    ports:
-      - 7058:7058
+      dockerfile: src/ChatService.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: "Server=db,1433;Database=ChatService;User ID=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;"
+      Authentication__JwtSecret: "${JWT_SECRET}"
+      Authentication__GoogleClientId: "${GOOGLE_CLIENT_ID}"
+    ports: ["8080:8080"]
+    depends_on:
+      db: { condition: service_healthy }
+
+volumes:
+  sqldata:
