@@ -26,7 +26,7 @@
 
 ## 📐 Architecture
 
-> See [`chatservice-architecture.html`](chatservice-architecture.html) for the full interactive diagram.
+> See ![ChatService Architecture](docs/chatservice-architecture.svg)
 
 ```
 ┌─ ChatService.Api ──────────────────────────────────────────────┐
