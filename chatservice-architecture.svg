@@ -1,0 +1,388 @@
+<svg viewBox="0 0 960 1480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .card { transition: filter 0.25s ease; cursor: default; }
+      .card:hover { filter: drop-shadow(0 0 20px rgba(255,255,255,0.08)); }
+      .mod-g rect { transition: fill-opacity 0.15s ease; }
+      .mod-g:hover rect { fill-opacity: 0.18 !important; }
+      .mod-g:hover .mod-title { fill: #ffffff !important; }
+      .arrow-dash { stroke-dasharray: 6 4; animation: flow 1.4s linear infinite; }
+      @keyframes flow { to { stroke-dashoffset: -20; } }
+      .pulse { animation: pulse 2.4s ease-in-out infinite; }
+      @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+      .badge-text { font-size: 8.5px; font-weight: 700; letter-spacing: 1px; }
+      .layer-name { font-size: 15px; font-weight: 700; }
+      .layer-tech { font-size: 8.5px; opacity: 0.45; }
+      .mod-title { font-size: 10.5px; font-weight: 700; }
+      .mod-line { font-size: 8.5px; opacity: 0.55; }
+      .conn-text { font-size: 8px; letter-spacing: 0.5px; opacity: 0.5; }
+      .foot-text { font-size: 9.5px; opacity: 0.3; letter-spacing: 0.5px; }
+      .legend-text { font-size: 9px; opacity: 0.5; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#080c14"/><stop offset="100%" stop-color="#060810"/></linearGradient>
+    <linearGradient id="g-client" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1c1a06"/><stop offset="100%" stop-color="#14120a"/></linearGradient>
+    <linearGradient id="g-api"    x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1c0808"/><stop offset="100%" stop-color="#140808"/></linearGradient>
+    <linearGradient id="g-app"    x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#100c1c"/><stop offset="100%" stop-color="#0c0a18"/></linearGradient>
+    <linearGradient id="g-domain" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#061610"/><stop offset="100%" stop-color="#041008"/></linearGradient>
+    <linearGradient id="g-infra"  x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#180e04"/><stop offset="100%" stop-color="#120c04"/></linearGradient>
+    <linearGradient id="g-db"     x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#180614"/><stop offset="100%" stop-color="#100410"/></linearGradient>
+    <filter id="f-shadow"><feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000000" flood-opacity="0.7"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="1480" fill="url(#bg)" rx="16"/>
+
+  <!-- Grid -->
+  <g opacity="0.025" stroke="#7c8db0" stroke-width="0.5">
+    <line x1="0" y1="60"   x2="960" y2="60"/>  <line x1="0" y1="120"  x2="960" y2="120"/>
+    <line x1="0" y1="180"  x2="960" y2="180"/> <line x1="0" y1="240"  x2="960" y2="240"/>
+    <line x1="0" y1="300"  x2="960" y2="300"/> <line x1="0" y1="360"  x2="960" y2="360"/>
+    <line x1="0" y1="420"  x2="960" y2="420"/> <line x1="0" y1="480"  x2="960" y2="480"/>
+    <line x1="0" y1="540"  x2="960" y2="540"/> <line x1="0" y1="600"  x2="960" y2="600"/>
+    <line x1="0" y1="660"  x2="960" y2="660"/> <line x1="0" y1="720"  x2="960" y2="720"/>
+    <line x1="0" y1="780"  x2="960" y2="780"/> <line x1="0" y1="840"  x2="960" y2="840"/>
+    <line x1="0" y1="900"  x2="960" y2="900"/> <line x1="0" y1="960"  x2="960" y2="960"/>
+    <line x1="0" y1="1020" x2="960" y2="1020"/><line x1="0" y1="1080" x2="960" y2="1080"/>
+    <line x1="0" y1="1140" x2="960" y2="1140"/><line x1="0" y1="1200" x2="960" y2="1200"/>
+    <line x1="0" y1="1260" x2="960" y2="1260"/><line x1="0" y1="1320" x2="960" y2="1320"/>
+    <line x1="0" y1="1380" x2="960" y2="1380"/>
+    <line x1="60"  y1="0" x2="60"  y2="1480"/><line x1="120" y1="0" x2="120" y2="1480"/>
+    <line x1="180" y1="0" x2="180" y2="1480"/><line x1="240" y1="0" x2="240" y2="1480"/>
+    <line x1="300" y1="0" x2="300" y2="1480"/><line x1="360" y1="0" x2="360" y2="1480"/>
+    <line x1="420" y1="0" x2="420" y2="1480"/><line x1="480" y1="0" x2="480" y2="1480"/>
+    <line x1="540" y1="0" x2="540" y2="1480"/><line x1="600" y1="0" x2="600" y2="1480"/>
+    <line x1="660" y1="0" x2="660" y2="1480"/><line x1="720" y1="0" x2="720" y2="1480"/>
+    <line x1="780" y1="0" x2="780" y2="1480"/><line x1="840" y1="0" x2="840" y2="1480"/>
+    <line x1="900" y1="0" x2="900" y2="1480"/>
+  </g>
+
+  <!-- Ambient orbs -->
+  <circle cx="200" cy="300"  r="200" fill="#eab308" opacity="0.015"/>
+  <circle cx="760" cy="800"  r="250" fill="#8b5cf6" opacity="0.015"/>
+  <circle cx="480" cy="1200" r="200" fill="#22c55e" opacity="0.015"/>
+
+  <!-- ── HEADER ── -->
+  <circle cx="250" cy="48" r="4" fill="#22c55e" class="pulse"/>
+  <text x="480" y="52" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#eab308" letter-spacing="3" font-weight="600">CLEAN ARCHITECTURE · ASP.NET CORE 9 · SIGNALR · EF CORE</text>
+  <text x="480" y="90" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="38" fill="#f9fafb" font-weight="800" letter-spacing="-1.5">ChatService</text>
+  <text x="480" y="112" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#4b5563" letter-spacing="1">Backend Architecture · github.com/chethankumblekar/ChatService</text>
+
+  <!-- ═══ LAYER 1: CLIENT (y=138) ═══ -->
+  <g class="card" transform="translate(36,138)" filter="url(#f-shadow)">
+    <rect width="888" height="148" rx="11" fill="url(#g-client)" stroke="#eab308" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="148" rx="2" fill="#eab308"/>
+    <rect width="888" height="46" rx="11" fill="#eab308" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#eab308" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="64" height="19" rx="9" fill="#eab308" fill-opacity="0.15"/>
+    <text x="46" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#eab308" class="badge-text">EXTERNAL</text>
+    <text x="92" y="28" font-family="-apple-system,sans-serif" fill="#fde68a" class="layer-name">🌐  ChatApp — Client</text>
+    <text x="92" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">React 18 · TypeScript · Redux Toolkit · @microsoft/signalr · jwt-decode · js-cookie · Google GSI</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="196" height="72" rx="7" fill="#eab308" fill-opacity="0.08" stroke="#eab308" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fde68a" class="mod-title">REST Calls</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Authorization: Bearer JWT</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">HTTPS → :7058</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">authApi · userApi</text>
+    </g>
+    <g class="mod-g" transform="translate(222,58)">
+      <rect width="196" height="72" rx="7" fill="#eab308" fill-opacity="0.08" stroke="#eab308" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fde68a" class="mod-title">WebSocket</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">WSS → /hubs/chat</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">?access_token=jwt</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">useSignalR.ts hook</text>
+    </g>
+    <g class="mod-g" transform="translate(430,58)">
+      <rect width="196" height="72" rx="7" fill="#eab308" fill-opacity="0.08" stroke="#eab308" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fde68a" class="mod-title">Redux Store</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">authSlice · chatSlice</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">conversations · messages</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">onlineUsers · status</text>
+    </g>
+    <g class="mod-g" transform="translate(638,58)">
+      <rect width="236" height="72" rx="7" fill="#eab308" fill-opacity="0.08" stroke="#eab308" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fde68a" class="mod-title">Google OAuth</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">renderButton() ← no FedCM</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">credential → appJWT</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">GoogleLoginButton.tsx</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(480,294)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1f2937" stroke-width="1.5" class="arrow-dash"/>
+    <polygon points="0,44 -5,34 5,34" fill="#1f2937"/>
+    <rect x="-108" y="14" width="216" height="16" rx="8" fill="#0d1117" stroke="#1f2937" stroke-width="1"/>
+    <text x="0" y="26" text-anchor="middle" font-family="ui-monospace,monospace" fill="#4b5563" class="conn-text">↓  HTTPS + WSS · JWT Bearer · Port 7058</text>
+  </g>
+
+  <!-- ═══ LAYER 2: API (y=346) ═══ -->
+  <g class="card" transform="translate(36,346)" filter="url(#f-shadow)">
+    <rect width="888" height="166" rx="11" fill="url(#g-api)" stroke="#ef4444" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="166" rx="2" fill="#ef4444"/>
+    <rect width="888" height="46" rx="11" fill="#ef4444" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#ef4444" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="106" height="19" rx="9" fill="#ef4444" fill-opacity="0.15"/>
+    <text x="67" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#ef4444" class="badge-text">PRESENTATION</text>
+    <text x="134" y="28" font-family="-apple-system,sans-serif" fill="#fca5a5" class="layer-name">🌐  ChatService.Api</text>
+    <text x="134" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">ASP.NET Core 9 · Swashbuckle · Serilog · Microsoft.AspNetCore.SignalR · JWT Bearer · CORS</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="162" height="90" rx="7" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fca5a5" class="mod-title">AuthController</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">POST /api/auth/google</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GET  /api/auth/me</text>
+      <text x="12" y="68" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Google → JWT exchange</text>
+      <text x="12" y="82" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Upserts user in DB</text>
+    </g>
+    <g class="mod-g" transform="translate(188,58)">
+      <rect width="186" height="90" rx="7" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fca5a5" class="mod-title">UserController</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GET /user?search=</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GET /conversations</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GET /messages/{id}</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">POST /read</text>
+    </g>
+    <g class="mod-g" transform="translate(386,58)">
+      <rect width="186" height="90" rx="7" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fca5a5" class="mod-title">ChatHub  ⚡</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">SendMessageToUser</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">MarkMessageRead</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Typing · Presence</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">JoinGroup / LeaveGroup</text>
+    </g>
+    <g class="mod-g" transform="translate(584,58)">
+      <rect width="152" height="90" rx="7" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fca5a5" class="mod-title">Middleware</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">ExceptionMiddleware</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">JWT Authentication</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">CORS Policy</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Swagger · Health</text>
+    </g>
+    <g class="mod-g" transform="translate(748,58)">
+      <rect width="126" height="90" rx="7" fill="#ef4444" fill-opacity="0.08" stroke="#ef4444" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fca5a5" class="mod-title">Program.cs</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">JwtUserIdProvider</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">ClaimTypeMap.Clear</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">AddInfrastructure</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Scoped lifetimes</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(480,520)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1f2937" stroke-width="1.5" class="arrow-dash"/>
+    <polygon points="0,44 -5,34 5,34" fill="#1f2937"/>
+    <rect x="-116" y="14" width="232" height="16" rx="8" fill="#0d1117" stroke="#1f2937" stroke-width="1"/>
+    <text x="0" y="26" text-anchor="middle" font-family="ui-monospace,monospace" fill="#4b5563" class="conn-text">↓  interfaces only · no circular dependencies</text>
+  </g>
+
+  <!-- ═══ LAYER 3: APPLICATION (y=572) ═══ -->
+  <g class="card" transform="translate(36,572)" filter="url(#f-shadow)">
+    <rect width="888" height="148" rx="11" fill="url(#g-app)" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="148" rx="2" fill="#8b5cf6"/>
+    <rect width="888" height="46" rx="11" fill="#8b5cf6" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#8b5cf6" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="102" height="19" rx="9" fill="#8b5cf6" fill-opacity="0.15"/>
+    <text x="65" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#8b5cf6" class="badge-text">APPLICATION</text>
+    <text x="130" y="28" font-family="-apple-system,sans-serif" fill="#c4b5fd" class="layer-name">⚙️  ChatService.Application</text>
+    <text x="130" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">CQRS · Commands · Queries · DTOs · FluentValidation · Zero framework dependencies</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="204" height="72" rx="7" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#c4b5fd" class="mod-title">Commands</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">SendDirectMessageCommand</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">SendDirectMessageHandler</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">CQRS write side</text>
+    </g>
+    <g class="mod-g" transform="translate(230,58)">
+      <rect width="204" height="72" rx="7" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#c4b5fd" class="mod-title">Queries</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GetDirectMessagesHandler</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GetConversationsHandler</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">CQRS read side</text>
+    </g>
+    <g class="mod-g" transform="translate(446,58)">
+      <rect width="184" height="72" rx="7" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#c4b5fd" class="mod-title">DTOs</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">MessageDto · ConvDto</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">UserDto · AuthDtos</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">MessageMappings</text>
+    </g>
+    <g class="mod-g" transform="translate(642,58)">
+      <rect width="232" height="72" rx="7" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#c4b5fd" class="mod-title">Interfaces</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">IAuthService</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">IChatService</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Contracts for infra</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(480,728)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1f2937" stroke-width="1.5" class="arrow-dash"/>
+    <polygon points="0,44 -5,34 5,34" fill="#1f2937"/>
+    <rect x="-108" y="14" width="216" height="16" rx="8" fill="#0d1117" stroke="#1f2937" stroke-width="1"/>
+    <text x="0" y="26" text-anchor="middle" font-family="ui-monospace,monospace" fill="#4b5563" class="conn-text">↓  domain models only · no infrastructure deps</text>
+  </g>
+
+  <!-- ═══ LAYER 4: DOMAIN (y=776) ═══ -->
+  <g class="card" transform="translate(36,776)" filter="url(#f-shadow)">
+    <rect width="888" height="148" rx="11" fill="url(#g-domain)" stroke="#22c55e" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="148" rx="2" fill="#22c55e"/>
+    <rect width="888" height="46" rx="11" fill="#22c55e" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#22c55e" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="72" height="19" rx="9" fill="#22c55e" fill-opacity="0.15"/>
+    <text x="50" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#22c55e" class="badge-text">DOMAIN</text>
+    <text x="100" y="28" font-family="-apple-system,sans-serif" fill="#86efac" class="layer-name">🏛  ChatService.Domain</text>
+    <text x="100" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">Pure C# · Zero external packages · Aggregate roots · Repository interfaces · Domain exceptions</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="204" height="72" rx="7" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#86efac" class="mod-title">Entities</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">User (email PK · aggregate)</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Message (Direct · Group)</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Group (members)</text>
+    </g>
+    <g class="mod-g" transform="translate(230,58)">
+      <rect width="204" height="72" rx="7" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#86efac" class="mod-title">Repository Contracts</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">IUserRepository</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">IMessageRepository</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">IGroupRepository</text>
+    </g>
+    <g class="mod-g" transform="translate(446,58)">
+      <rect width="204" height="72" rx="7" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#86efac" class="mod-title">Exceptions</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">DomainException</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">NotFoundException</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">UnauthorizedException</text>
+    </g>
+    <g class="mod-g" transform="translate(662,58)">
+      <rect width="212" height="72" rx="7" fill="#22c55e" fill-opacity="0.08" stroke="#22c55e" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#86efac" class="mod-title">Value Objects</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">MessageType enum</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Direct=1 · Group=2</text>
+      <text x="12" y="64" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Zero external deps ✓</text>
+    </g>
+  </g>
+
+  <!-- Arrow 4 -->
+  <g transform="translate(480,932)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1f2937" stroke-width="1.5" class="arrow-dash"/>
+    <polygon points="0,44 -5,34 5,34" fill="#1f2937"/>
+    <rect x="-106" y="14" width="212" height="16" rx="8" fill="#0d1117" stroke="#1f2937" stroke-width="1"/>
+    <text x="0" y="26" text-anchor="middle" font-family="ui-monospace,monospace" fill="#4b5563" class="conn-text">↓  implements domain interfaces</text>
+  </g>
+
+  <!-- ═══ LAYER 5: INFRASTRUCTURE (y=980) ═══ -->
+  <g class="card" transform="translate(36,980)" filter="url(#f-shadow)">
+    <rect width="888" height="166" rx="11" fill="url(#g-infra)" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="166" rx="2" fill="#f97316"/>
+    <rect width="888" height="46" rx="11" fill="#f97316" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#f97316" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="116" height="19" rx="9" fill="#f97316" fill-opacity="0.15"/>
+    <text x="72" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#f97316" class="badge-text">INFRASTRUCTURE</text>
+    <text x="144" y="28" font-family="-apple-system,sans-serif" fill="#fdba74" class="layer-name">🔧  ChatService.Infrastructure</text>
+    <text x="144" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">EF Core 9 · EntityFrameworkCore.SqlServer · Google.Apis.Auth · Microsoft.IdentityModel.Tokens</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="196" height="90" rx="7" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fdba74" class="mod-title">AppDbContext</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">EF Core · Fluent API</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Auto UpdatedAt</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Soft delete filter</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">EF Migrations</text>
+    </g>
+    <g class="mod-g" transform="translate(222,58)">
+      <rect width="210" height="90" rx="7" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fdba74" class="mod-title">Repositories</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">UserRepository</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">MessageRepository</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GroupRepository</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">All Scoped lifetimes</text>
+    </g>
+    <g class="mod-g" transform="translate(444,58)">
+      <rect width="210" height="90" rx="7" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fdba74" class="mod-title">Services</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">AuthService</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">Google.Apis.Auth validate</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">ChatServiceImpl</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">HmacSha256 JWT</text>
+    </g>
+    <g class="mod-g" transform="translate(666,58)">
+      <rect width="208" height="90" rx="7" fill="#f97316" fill-opacity="0.08" stroke="#f97316" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#fdba74" class="mod-title">EF Configurations</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">UserConfiguration</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">MessageConfiguration</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">GroupConfiguration</text>
+      <text x="12" y="80" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Explicit FK mapping</text>
+    </g>
+  </g>
+
+  <!-- Arrow 5 -->
+  <g transform="translate(480,1154)">
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1f2937" stroke-width="1.5" class="arrow-dash"/>
+    <polygon points="0,44 -5,34 5,34" fill="#1f2937"/>
+    <rect x="-116" y="14" width="232" height="16" rx="8" fill="#0d1117" stroke="#1f2937" stroke-width="1"/>
+    <text x="0" y="26" text-anchor="middle" font-family="ui-monospace,monospace" fill="#4b5563" class="conn-text">↓  TCP :1433 · Entity Framework Core</text>
+  </g>
+
+  <!-- ═══ LAYER 6: DATABASE (y=1202) ═══ -->
+  <g class="card" transform="translate(36,1202)" filter="url(#f-shadow)">
+    <rect width="888" height="152" rx="11" fill="url(#g-db)" stroke="#ec4899" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect width="3" height="152" rx="2" fill="#ec4899"/>
+    <rect width="888" height="46" rx="11" fill="#ec4899" fill-opacity="0.07"/>
+    <rect y="36" width="888" height="10" fill="#ec4899" fill-opacity="0.07"/>
+    <rect x="14" y="12" width="54" height="19" rx="9" fill="#ec4899" fill-opacity="0.15"/>
+    <text x="41" y="25" text-anchor="middle" font-family="ui-monospace,monospace" fill="#ec4899" class="badge-text">DATA</text>
+    <text x="82" y="28" font-family="-apple-system,sans-serif" fill="#f9a8d4" class="layer-name">🗄  SQL Server 2022</text>
+    <text x="82" y="42" font-family="ui-monospace,monospace" fill="#9ca3af" class="layer-tech">Docker · azure-sql-edge (Mac M2 arm64 compatible) · Port 1433 · EF Core Migrations</text>
+    <g class="mod-g" transform="translate(14,58)">
+      <rect width="196" height="76" rx="7" fill="#ec4899" fill-opacity="0.08" stroke="#ec4899" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#f9a8d4" class="mod-title">users</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔑 email (PK)</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">first_name · last_name</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">avatar_url · last_seen_at</text>
+    </g>
+    <g class="mod-g" transform="translate(222,58)">
+      <rect width="256" height="76" rx="7" fill="#ec4899" fill-opacity="0.08" stroke="#ec4899" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#f9a8d4" class="mod-title">messages</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔑 id (PK) · 🔗 sender_id (FK)</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔗 recipient_id · 🔗 group_id</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">content · sent_at · is_deleted</text>
+    </g>
+    <g class="mod-g" transform="translate(490,58)">
+      <rect width="196" height="76" rx="7" fill="#ec4899" fill-opacity="0.08" stroke="#ec4899" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#f9a8d4" class="mod-title">groups</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔑 id (PK, Guid)</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">name · description</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">🔗 created_by_id (FK)</text>
+    </g>
+    <g class="mod-g" transform="translate(698,58)">
+      <rect width="176" height="76" rx="7" fill="#ec4899" fill-opacity="0.08" stroke="#ec4899" stroke-opacity="0.18" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system,sans-serif" fill="#f9a8d4" class="mod-title">group_members</text>
+      <text x="12" y="38" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔗 groups_id (FK)</text>
+      <text x="12" y="52" font-family="ui-monospace,monospace" fill="#9ca3af" class="mod-line">🔗 members_email (FK)</text>
+      <text x="12" y="66" font-family="ui-monospace,monospace" fill="#6b7280" class="mod-line">Many-to-many join</text>
+    </g>
+  </g>
+
+  <!-- FOOTER -->
+  <text x="480" y="1394" text-anchor="middle" font-family="ui-monospace,monospace" fill="#374151" class="foot-text">Dependency Rule: each layer depends only inward · Domain has zero external package dependencies</text>
+
+  <!-- Legend -->
+  <g transform="translate(100,1420)">
+    <circle cx="0"   cy="0" r="5" fill="#eab308"/>
+    <text x="10"  y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">Client</text>
+    <circle cx="76"  cy="0" r="5" fill="#ef4444"/>
+    <text x="86"  y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">API</text>
+    <circle cx="140" cy="0" r="5" fill="#8b5cf6"/>
+    <text x="150" y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">Application</text>
+    <circle cx="256" cy="0" r="5" fill="#22c55e"/>
+    <text x="266" y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">Domain</text>
+    <circle cx="356" cy="0" r="5" fill="#f97316"/>
+    <text x="366" y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">Infrastructure</text>
+    <circle cx="486" cy="0" r="5" fill="#ec4899"/>
+    <text x="496" y="4" font-family="ui-monospace,monospace" fill="#6b7280" class="legend-text">Database</text>
+    <circle cx="578" cy="0" r="5" fill="#22c55e" class="pulse"/>
+    <text x="592" y="4" font-family="ui-monospace,monospace" fill="#22c55e" class="legend-text">Animated</text>
+  </g>
+
+  <text x="924" y="1468" text-anchor="end" font-family="ui-monospace,monospace" font-size="8" fill="#1f2937">chetchatni · 2026</text>
+</svg>
