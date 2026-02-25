@@ -26,7 +26,7 @@
 
 ## 📐 Architecture
 
-![ChatService Architecture](docs/chatservice-architecture.svg)
+![ChatService Architecture](chatservice-architecture.svg)
 
 ```
 ┌─ ChatService.Api ──────────────────────────────────────────────┐
